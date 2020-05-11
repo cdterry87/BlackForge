@@ -1,0 +1,63 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+
+// Bulma
+@import "~bulma/bulma";
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: #eaeaea;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Patua One', sans-serif;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+#auth-box {
+  h1 {
+    text-align: center;
+  }
+
+  #login-box {
+    margin-top: 15px;
+  }
+}
