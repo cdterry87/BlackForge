@@ -15,6 +15,11 @@ class CreateUsersStatusTable extends Migration
     {
         Schema::create('users_status', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('gold');
+            $table->integer('total_earnings');
+            $table->tinyInteger('level');
             $table->timestamps();
         });
     }

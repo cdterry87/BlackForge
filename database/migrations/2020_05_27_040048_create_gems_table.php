@@ -15,6 +15,8 @@ class CreateGemsTable extends Migration
     {
         Schema::create('gems', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('enhancement_bonus');
             $table->timestamps();
         });
     }

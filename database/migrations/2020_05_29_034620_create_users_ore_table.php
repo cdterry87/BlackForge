@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersInventoryTable extends Migration
+class CreateUsersOreTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateUsersInventoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_inventory', function (Blueprint $table) {
+        Schema::create('users_ore', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('ore_id');
+            $table->foreign('ore_id')->references('id')->on('ore');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateUsersInventoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_inventory');
+        Schema::dropIfExists('users_ore');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOreTable extends Migration
+class CreateUsersItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateOreTable extends Migration
      */
     public function up()
     {
-        Schema::create('ore', function (Blueprint $table) {
+        Schema::create('users_items', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('buy_price');
-            $table->integer('time');
-            $table->integer('level');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('item_id');
+            $table->foreign('item_id')->references('id')->on('items');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateOreTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ore');
+        Schema::dropIfExists('users_items');
     }
 }
