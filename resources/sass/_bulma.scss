@@ -1,0 +1,7 @@
+@import "~bulma/bulma";
+
+.tile {
+  &--no-grow {
+    flex-grow: 0;
+  }
+}

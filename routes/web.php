@@ -26,4 +26,13 @@ Route::get('/login', function () {
 
 Auth::routes();
 
+// Logout route
+Route::get('/api/logout', function () {
+    Auth::logout();
+    return Redirect::to('login');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Catch-all routes to route everything back to the home index
+Route::get('/{any}', 'HomeController@index')->where('any', '.*');

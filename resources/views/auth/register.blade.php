@@ -4,7 +4,7 @@
 <div id="auth-box" class="container">
     <h1>Black Forge</h1>
     <div id="login-box" class="columns">
-        <div class="column is-three-fifths is-offset-one-fifth">
+        <div class="column is-half is-offset-one-quarter">
             <div class="box">
                 <h2>{{ __('Register') }}</h2>
                 <form method="POST" action="{{ route('register') }}">
