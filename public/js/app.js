@@ -2168,16 +2168,62 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Inventory',
   data: function data() {
     return {
-      inventory: []
+      ores: [],
+      gems: [],
+      items: []
     };
   },
   methods: {
-    getInventory: function getInventory() {
+    getOre: function getOre() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -2187,11 +2233,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _services_InventoryService__WEBPACK_IMPORTED_MODULE_1__["default"].getInventory();
+                return _services_InventoryService__WEBPACK_IMPORTED_MODULE_1__["default"].getOre();
 
               case 2:
                 response = _context.sent;
-                _this.inventory = response.data;
+                _this.ores = response.data;
 
               case 4:
               case "end":
@@ -2200,10 +2246,63 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    getGems: function getGems() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return _services_InventoryService__WEBPACK_IMPORTED_MODULE_1__["default"].getGems();
+
+              case 2:
+                response = _context2.sent;
+                _this2.gems = response.data;
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    getItems: function getItems() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return _services_InventoryService__WEBPACK_IMPORTED_MODULE_1__["default"].getItems();
+
+              case 2:
+                response = _context3.sent;
+                _this3.items = response.data;
+
+              case 4:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
     }
   },
   mounted: function mounted() {
-    this.getInventory();
+    this.getOre();
+    this.getGems();
+    this.getItems();
+    console.log('ore', this.ores);
+    console.log('gems', this.gems);
+    console.log('items', this.items);
   }
 });
 
@@ -4344,27 +4443,101 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "inventory" } }, [
+  return _c("div", { staticClass: "inventory", attrs: { id: "inventory" } }, [
     _c("h2", { staticClass: "u-center" }, [_vm._v("Inventory")]),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "columns is-multiline" },
-      _vm._l(_vm.inventory, function(item, index) {
-        return _c("div", { key: index, staticClass: "column is-one-third" }, [
+    _vm.ores.length > 0
+      ? _c("section", { staticClass: "inventory__section" }, [
+          _c("h3", [_vm._v("Ore")]),
+          _vm._v(" "),
           _c(
             "div",
-            { staticClass: "box notification is-dark has-text-centered" },
-            [
-              _c("h3", [_vm._v(_vm._s(item.name))]),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(item.quantity))])
-            ]
+            { staticClass: "columns is-multiline" },
+            _vm._l(_vm.ores, function(ore, index) {
+              return _c(
+                "div",
+                { key: index, staticClass: "column is-one-third" },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "box notification is-dark has-text-centered"
+                    },
+                    [
+                      _c("h4", [_vm._v(_vm._s(ore.name))]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("0")])
+                    ]
+                  )
+                ]
+              )
+            }),
+            0
           )
         ])
-      }),
-      0
-    )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.gems.length > 0
+      ? _c("section", { staticClass: "inventory__section" }, [
+          _c("h3", [_vm._v("Gems")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "columns is-multiline" },
+            _vm._l(_vm.gems, function(gem, index) {
+              return _c(
+                "div",
+                { key: index, staticClass: "column is-one-third" },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "box notification is-dark has-text-centered"
+                    },
+                    [
+                      _c("h4", [_vm._v(_vm._s(gem.name))]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("0")])
+                    ]
+                  )
+                ]
+              )
+            }),
+            0
+          )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.items.length > 0
+      ? _c("section", { staticClass: "inventory__section" }, [
+          _c("h3", [_vm._v("Items")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "columns is-multiline" },
+            _vm._l(_vm.items, function(item, index) {
+              return _c(
+                "div",
+                { key: index, staticClass: "column is-one-third" },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "box notification is-dark has-text-centered"
+                    },
+                    [
+                      _c("h3", [_vm._v(_vm._s(item.name))]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("0")])
+                    ]
+                  )
+                ]
+              )
+            }),
+            0
+          )
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -17125,8 +17298,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Api */ "./resources/js/services/Api.js");
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  getInventory: function getInventory() {
-    return Object(_Api__WEBPACK_IMPORTED_MODULE_0__["default"])().get('inventory');
+  getOre: function getOre() {
+    return Object(_Api__WEBPACK_IMPORTED_MODULE_0__["default"])().get('ore');
+  },
+  getGems: function getGems() {
+    return Object(_Api__WEBPACK_IMPORTED_MODULE_0__["default"])().get('gems');
+  },
+  getItems: function getItems() {
+    return Object(_Api__WEBPACK_IMPORTED_MODULE_0__["default"])().get('items');
   }
 });
 

@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="auth-box" class="container">
-    <h1>Black Forge</h1>
+    <h1 class="u-center">Black Forge</h1>
     <div id="login-box" class="columns">
         <div class="column is-half is-offset-one-quarter">
             <div class="box">

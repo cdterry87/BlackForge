@@ -1,7 +1,13 @@
 import Api from './Api'
 
 export default {
-  getInventory () {
-    return Api().get('inventory')
+  getOre () {
+    return Api().get('ore')
+  },
+  getGems () {
+    return Api().get('gems')
+  },
+  getItems () {
+    return Api().get('items')
   }
 }
