@@ -1,0 +1,47 @@
+type Query {
+    levels: [Level!]! @all
+    categories: [Category!]! @all
+    achievements: [Achievement!]! @all
+    ores: [Ore!]! @all
+    items: [Item!]! @all
+    gems: [Gem!]! @all
+}
+
+type Level {
+    id: ID!
+    level: Int!
+    total_earnings_required: Int!
+}
+
+type Category {
+    id: ID!
+    name: String!
+}
+
+type Achievement {
+    id: ID!
+    description: String!
+}
+
+type Ore {
+    id: ID!
+    name: String!
+    buy_price: Int!
+    time: Int!
+    level: Int!
+}
+
+type Item {
+    id: ID!
+    name: String!
+    ore_quantity_required: Int!
+    sell_price: Int!
+    ore: Ore @hasOne
+    category: Category @hasOne
+}
+
+type Gem {
+    id: ID!
+    name: String!
+    enhancement_bonus: Int!
+}

@@ -1,0 +1,42 @@
+type Query {
+    users: [User!]! @all
+    user(id: ID @eq): User @find
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+}
+
+type UserStatus {
+    id: ID!
+    gold: Int!
+    total_earnings: Int!
+    level: Int!
+    user: User @belongsTo
+}
+
+type UserAchievement {
+    id: ID!
+    user: User @belongsTo
+    achievement: Achievement @belongsTo
+}
+
+type UserItem {
+    id: ID!
+    user: User @belongsTo
+    item: Item @belongsTo
+}
+
+type UserOre {
+    id: ID!
+    user: User @belongsTo
+    item: Item @belongsTo
+}
+
+type UserGem {
+    id: ID!
+    user: User @belongsTo
+    gem: Gem @belongsTo
+}
